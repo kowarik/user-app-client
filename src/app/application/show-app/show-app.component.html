@@ -1,0 +1,19 @@
+<table class='table table-bordered'>
+    <thead>
+        <tr>
+            <th class='col-1'>Id</th>
+            <th class='col'>Name</th>
+            <th class='col'>Description</th>
+            <th class='col-1'></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let app of ApplicationList | paginate: { itemsPerPage: 5, currentPage: page, totalItems: totalLength }">
+            <td>{{ app.Id }}</td>
+            <td>{{ app.Name }}</td>
+            <td>{{ app.Description }}</td>
+            <button class='btn btn-outline-danger' (click)='deleteClick(app)' type='button'>Delete App</button>
+        </tr>
+    </tbody>
+</table>
+<pagination-controls (pageChange)="page = $event" ></pagination-controls>

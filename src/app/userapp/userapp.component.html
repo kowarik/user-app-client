@@ -1,0 +1,26 @@
+<table class='table table-bordered'>
+    <thead>
+        <tr>
+            <th class='col-4'>User Name</th>
+            <th class='col-4'>Application Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor='let item of UserAppList'>
+            <td>{{ item.UserName }}</td>
+            <td>{{ item.AppName }}</td>
+            <div class="row">
+                <div class="col">
+                    <button class='btn btn-outline-danger' (click)='deleteClick(item)' *ngIf='item.AppName' type='button'>Delete connection</button>
+                    <select class='form-control' [(ngModel)]='AppId' *ngIf='!item.AppName'>
+                        <option>Select</option>
+                        <option *ngFor='let app of AppList'>{{app.Id}}</option>
+                    </select>
+                </div>
+                <div class="col">
+                    <button class='btn btn-outline-secondary' (click)='addClick(item)' *ngIf='!item.AppName' type='button'>Set connection</button>
+                </div>
+            </div>
+        </tr>
+    </tbody>
+</table>

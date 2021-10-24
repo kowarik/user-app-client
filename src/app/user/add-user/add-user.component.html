@@ -1,0 +1,7 @@
+<form>
+    <input class='form-control' name='UserName' [(ngModel)]='UserName' placeholder='Enter Name'>
+    <textarea class='form-control' name='UserDescription' [(ngModel)]='UserDescription' rows='3' placeholder='Enter Description'></textarea>
+    <label>Enter Application Id</label>
+    <input class='form-control' name='UserAppId' [(ngModel)]='UserAppId' type='number'>
+    <button class='btn btn-outline-primary' (click)='addClick()' routerLink='../' type='button'>Save</button>
+</form>

@@ -1,0 +1,21 @@
+<table class='table table-bordered'>
+    <thead>
+        <tr>
+            <th class='col-1'>Id</th>
+            <th class='col'>Name</th>
+            <th class='col'>Description</th>
+            <th class='col'>Application Id</th>
+            <th class="col-1"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of UserList | paginate: { itemsPerPage: 5, currentPage: page, totalItems: totalLength }">
+            <td>{{ user.Id }}</td>
+            <td>{{ user.Name }}</td>
+            <td>{{ user.Description }}</td>
+            <td>{{ user.ApplicationId }}</td>
+            <button class='btn btn-outline-danger' (click)='deleteClick(user)' type='button'>Delete User</button>
+        </tr>
+    </tbody>
+</table>
+<pagination-controls (pageChange)="page = $event" ></pagination-controls>
